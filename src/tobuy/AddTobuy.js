@@ -15,9 +15,9 @@ function AddTobuy({ onCreate }) {
   }
 
   return (
-    <form style={{marginBottom: '1rem', display: 'flex', justifyContent: 'space-between'}} onSubmit={submitHandler} >
-      <input className='field' value={value} onChange={event => setValue(event.target.value)} />
-      <button type="submit" className='btn btn-success btn-lg'>Add</button>
+    <form style={{marginBottom: '2rem', display: 'flex', justifyContent: 'space-between'}} onSubmit={submitHandler} >
+      <input placeholder="Your item.." className='field shadow' value={value} onChange={event => setValue(event.target.value)} />
+      <button type="submit" className='btn btn-success btn-lg shadow'>Add</button>
     </form>
   )
 }

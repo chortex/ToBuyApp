@@ -34,16 +34,34 @@ function App() {
     )
   }
 
+  function getCurrentDate() {
+    let newDate = new Date()
+    let day = newDate.getDate();
+    if (day > 3) {
+      day += 'th';
+    } else if (day === 1) {
+      day += 'st';
+    } else if (day === 2) {
+      day += 'nd';
+    } else if (day === 3) {
+      day += 'rd';
+    }
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    let month = months[newDate.getMonth()]
+    return `${month + ' ' + day}`
+  }
+
   return (
     <Context.Provider value={{ removeTobuy }}>
       <div className='wrapper jumbotron'>
-        <h2 className='text-primary'><i className="fa fa-shopping-cart"></i> Your shopping card</h2>
+        <h2 className='text-primary'><i className="fa fa-check-circle"></i> Your check list</h2>
+        <h3 className='text-secondary'>{getCurrentDate()}</h3>
         <AddTobuy onCreate={addTobuy} />
 
         {tobuys.length ? (
-          < TobuyList tobuys={tobuys} onToggle={ToggleTobuy} />
+            < TobuyList tobuys={tobuys} onToggle={ToggleTobuy} />
           ) : (
-            <p className='text-secondary' style={{textAlign: "center", fontSize: "20px"}}>Your shopping card is empty!</p>
+            <p className='text-secondary' style={{textAlign: "center", fontSize: "20px"}}>Your list is empty!</p>
           )
         }
       </div>

@@ -11,19 +11,25 @@ function TobuyItem({ tobuy, index, onChange }) {
   }
 
   return (
-    <li>
+    <li className='shadow'>
       <span className={classes.join(' ')}>
-        <input
-          type='checkbox'
-          onChange={() => onChange(tobuy.id)}
-          checked={tobuy.completed}
-        />
+        <div className='custom-control custom-checkbox'>
+          <input
+            type='checkbox'
+            onChange={() => onChange(tobuy.id)}
+            checked={tobuy.completed}
+            className='custom-control-input'
+            id={tobuy.id}
+          />
+          <label className="custom-control-label" htmlFor={tobuy.id}></label>
+        </div>
+        &nbsp;
         <strong>{index + 1 +'.'}</strong>
         &nbsp;
         { tobuy.title }
       </span>
       
-      <button onClick={() => removeTobuy(tobuy.id)} className='btn btn-danger btn-sm'>&times;</button>
+      <button onClick={() => removeTobuy(tobuy.id)} className='btn btn-danger btn-sm btn-circle'>&times;</button>
     </li>
   )
 }
