@@ -59,7 +59,10 @@ function App() {
         <AddTobuy onCreate={addTobuy} />
 
         {tobuys.length ? (
-            < TobuyList tobuys={tobuys} onToggle={ToggleTobuy} />
+            <div>
+              < TobuyList tobuys={tobuys} onToggle={ToggleTobuy} />
+              {tobuys.length > 1 ? <h4>Total: {tobuys.length} items</h4> :<h4>Total: {tobuys.length} item</h4>}
+            </div>
           ) : (
             <p className='text-secondary' style={{textAlign: "center", fontSize: "20px"}}>Your list is empty!</p>
           )
